@@ -1,0 +1,11 @@
+export {BuscarEspaciosRequest} from "./requests/BuscarEspaciosRequest";
+export {CrearReservaRequest} from "./requests/CrearReservaRequest";
+export {CrearUsuarioRequest} from "./requests/CrearUsuarioRequest";
+export {LoginRequest} from "./requests/LoginRequest";
+// export {BuscarReservasRequest} from "./requests/BuscarReservasRequest";
+// export {BuscarUsuariosRequest} from "./requests/BuscarUsuariosRequest";
+export {AuthResponse} from "./responses/AuthResponse";  
+export {EspacioResponse} from "./responses/EspacioResponse";
+export {ReservaResponse} from "./responses/ReservaResponse";
+export {UsuarioResponse} from "./responses/UsuarioResponse";
+export { NotificacionResponse } from "./responses/NotificacionResponse";
