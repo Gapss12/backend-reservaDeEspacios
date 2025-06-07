@@ -1,5 +1,5 @@
 export interface Reserva {
-  id?: number
+  id: number
   usuario_id: number
   espacio_id: number
   fecha: Date
