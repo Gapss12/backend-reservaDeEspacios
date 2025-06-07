@@ -1,5 +1,5 @@
 import { Model, DataTypes } from "sequelize"
-import sequelize from "../config/database"
+import sequelize from "../../config/database"
 import UsuarioModel from "./UsuarioModel"
 import EspacioModel from "./EspacioModel"
 
