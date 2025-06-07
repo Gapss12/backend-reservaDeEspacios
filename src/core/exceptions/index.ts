@@ -1,3 +1,5 @@
 export {BusinessRuleException} from "./content/BusinessRuleException"
 export {DomainException} from "./content/DomainException"
 export {ValidationException} from "./content/ValidationException"
+export {AuthenticationException} from "./content/AuthenticationException"
+export {AuthorizationException} from "./content/AuthorizationException"
