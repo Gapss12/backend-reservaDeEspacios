@@ -14,7 +14,7 @@ router.use("/reservas", reservaRoutes);
 
 // Ruta de prueba
 router.get('/', (req, res) => {
-  res.send('API de Joyería funcionando correctamente');
+  res.send('API Resevas funcionando correctamente');
 });
 
 export default router

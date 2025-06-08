@@ -4,7 +4,7 @@ import type { Usuario } from "../../core/entities/Usuario"
 import type { Espacio } from "../../core/entities/Espacio"
 
 export class ReservaMapper {
-  static toEntity(request: CrearReservaRequest): Reserva {
+  static toEntity(request:  CrearReservaRequest): Reserva {
     return {
       usuario_id: request.usuario_id,
       espacio_id: request.espacio_id,

@@ -1,10 +1,45 @@
-import type { Espacio } from '../../../core/entities/Espacio'
-import type { IEspacioRepository } from '../../../core/interfaces/repositories/IEspacioRepository'
+import type { IEspacioRepository } from "../../../core/interfaces/repositories/IEspacioRepository"
+import type { IValidationService } from "../../../core/interfaces/services/IValidationService"
+import { ValidationException } from "../../../core/exceptions/index"
+import type { EspacioResponse } from "../../dto/responses/EspacioResponse"
+import { EspacioMapper } from "../../mappers/EspacioMapper"
 
-export class CreateEspacioUseCase {
-  constructor(private espacioRepository: IEspacioRepository) {}
+export interface CrearEspacioRequest {
+  nombre: string
+  tipo: string
+  capacidad: number
+  disponible?: boolean
+}
 
-  async execute(espacioData: Omit<Espacio, 'id' | 'createdAt' | 'updatedAt'>): Promise<Espacio> {
-    return await this.espacioRepository.create(espacioData)
+export class CrearEspacio {
+  constructor(
+    private espacioRepository: IEspacioRepository,
+    private validationService: IValidationService,
+  ) {}
+
+  async execute(request: CrearEspacioRequest): Promise<EspacioResponse> {
+    // Validaciones básicas
+    if (!request.nombre || request.nombre.trim().length === 0) {
+      throw new ValidationException("El nombre del espacio es requerido")
+    }
+
+    if (!request.tipo || request.tipo.trim().length === 0) {
+      throw new ValidationException("El tipo del espacio es requerido")
+    }
+
+    if (!request.capacidad || request.capacidad <= 0) {
+      throw new ValidationException("La capacidad debe ser mayor a 0")
+    }
+
+    // Crear el espacio
+    const nuevoEspacio = {
+      nombre: request.nombre.trim(),
+      tipo: request.tipo.trim().toLowerCase(),
+      capacidad: request.capacidad,
+      disponible: request.disponible !== false,
+    }
+
+    const espacioCreado = await this.espacioRepository.create(nuevoEspacio)
+    return EspacioMapper.toResponse(espacioCreado)
   }
 }
