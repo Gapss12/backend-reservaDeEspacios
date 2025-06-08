@@ -10,7 +10,7 @@ Sistema backend desarrollado con **Arquitectura Onion** para la gestión de rese
 
 La aplicación implementa **Arquitectura Onion** (Cebolla) con las siguientes capas concéntricas:
 
-'''
+```
 ┌─────────────────────────────────────────┐
 │           PRESENTATION LAYER            │
 │    (Controllers, Routes, Middleware)    │
@@ -24,7 +24,7 @@ La aplicación implementa **Arquitectura Onion** (Cebolla) con las siguientes ca
 │             CORE LAYER                  │
 │   (Entities, Interfaces, Exceptions)   │
 └─────────────────────────────────────────┘
-'''
+```
 
 ### Justificación de la Arquitectura
 
@@ -176,7 +176,7 @@ La aplicación implementa **Arquitectura Onion** (Cebolla) con las siguientes ca
 - npm o yarn
 
 ### Variables de Entorno
-\`\`\`bash
+```bash
 DB_NAME=sistema_reservas
 DB_USER=postgres
 DB_PASSWORD=postgres
@@ -184,10 +184,10 @@ DB_HOST=localhost
 DB_PORT=5432
 PORT=3000
 JWT_SECRET=your-secret-key
-\`\`\`
+```
 
 ### Comandos de Desarrollo
-\`\`\`bash
+```bash
 # Instalación
 npm install
 
@@ -201,7 +201,7 @@ npm run dev
 # Producción
 npm run build
 npm start
-\`\`\`
+```
 
 ## API Endpoints
 
@@ -229,7 +229,7 @@ npm start
 
 ## Estructura del Proyecto
 
-\`\`\`
+```
 src/
 ├── core/                    # Núcleo del dominio
 │   ├── entities/           # Entidades del negocio
@@ -246,7 +246,7 @@ src/
     ├── controllers/       # Controladores HTTP
     ├── routes/           # Definición de rutas
     └── middleware/       # Middleware de Express
-\`\`\`
+```
 
 ## Próximas Mejoras
 
