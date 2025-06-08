@@ -7,7 +7,8 @@
     
     "test": "jest",
     "start" : "ts-node-dev --respawn --transpile-only app.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "db:seed": "ts-node src/scripts/seed-data.ts"
   },
   "repository": {
     "type": "git",

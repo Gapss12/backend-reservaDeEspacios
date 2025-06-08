@@ -192,7 +192,6 @@ JWT_SECRET=your-secret-key
 npm install
 
 # Configurar base de datos
-npm run db:setup
 npm run db:seed
 
 # Desarrollo
