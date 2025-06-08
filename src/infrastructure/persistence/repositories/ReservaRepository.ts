@@ -1,6 +1,6 @@
 import type { IReservaRepository } from "../../../core/interfaces/repositories/IReservaRepository"
 import type { Reserva } from "../../../core/entities/Reserva"
-import {ReservaModel} from "../models/index"
+import {ReservaModel} from "../../persistence/models/index"
 
 export class ReservaRepository implements IReservaRepository {
   async findAll(): Promise<Reserva[]> {

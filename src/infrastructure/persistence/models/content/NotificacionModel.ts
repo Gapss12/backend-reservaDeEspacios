@@ -1,5 +1,5 @@
 import { Model, DataTypes } from "sequelize"
-import sequelize from "../../config/database"
+import {sequelize} from "../../database"
 import UsuarioModel from "./UsuarioModel"
 
 class NotificacionModel extends Model {

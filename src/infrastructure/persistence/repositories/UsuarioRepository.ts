@@ -1,6 +1,6 @@
 import type { IUsuarioRepository } from "../../../core/interfaces/repositories/IUsuarioRepository"
 import type { Usuario } from "../../../core/entities/Usuario"
-import {UsuarioModel} from "../models/index"
+import {UsuarioModel} from "../../persistence/models/index"
 
 export class UsuarioRepository implements IUsuarioRepository {
   async findAll(): Promise<Usuario[]> {

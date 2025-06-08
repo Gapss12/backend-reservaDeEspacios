@@ -1,6 +1,6 @@
 import type { INotificacionRepository } from "../../../core/interfaces/repositories/INotificacionRepository"
 import type { Notificacion } from "../../../core/entities/Notificacion"
-import {NotificacionModel} from "../models/index"
+import {NotificacionModel} from "../../persistence/models/index"
 
 export class NotificacionRepository implements INotificacionRepository {
   async findAll(): Promise<Notificacion[]> {

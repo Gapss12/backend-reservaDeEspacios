@@ -1,17 +1,17 @@
 import { Model, DataTypes } from "sequelize"
-import sequelize from "../../config/database"
+import {sequelize} from "../../database"
 
-class UsuarioModel extends Model {
+class EspacioModel extends Model {
   public id!: number
   public nombre!: string
-  public email!: string
-  public password!: string
-  public tipo!: "admin" | "usuario"
+  public tipo!: string
+  public capacidad!: number
+  public disponible!: boolean
   public readonly createdAt!: Date
   public readonly updatedAt!: Date
 }
 
-UsuarioModel.init(
+EspacioModel.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -22,26 +22,25 @@ UsuarioModel.init(
       type: DataTypes.STRING(100),
       allowNull: false,
     },
-    email: {
-      type: DataTypes.STRING(100),
-      allowNull: false,
-      unique: true,
-    },
-    password: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
-    },
     tipo: {
-      type: DataTypes.ENUM("admin", "usuario"),
+      type: DataTypes.STRING(50),
       allowNull: false,
-      defaultValue: "usuario",
+    },
+    capacidad: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    disponible: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
     },
   },
   {
     sequelize,
-    tableName: "usuarios",
+    tableName: "espacios",
     timestamps: true,
   },
 )
 
-export default UsuarioModel
+export default EspacioModel

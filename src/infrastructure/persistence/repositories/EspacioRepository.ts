@@ -1,6 +1,6 @@
 import type { IEspacioRepository } from "../../../core/interfaces/repositories/IEspacioRepository"
 import type { Espacio } from "../../../core/entities/Espacio"
-import {EspacioModel, ReservaModel} from "../models/index"
+import {EspacioModel, ReservaModel} from "../../persistence/models/index"
 import { Op } from "sequelize"
 
 export class EspacioRepository implements IEspacioRepository {
