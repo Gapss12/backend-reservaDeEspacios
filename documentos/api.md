@@ -3,9 +3,9 @@
 ## Autenticación
 
 Todas las rutas protegidas requieren el header:
-\`\`\`
+```
 Authorization: Bearer <jwt_token>
-\`\`\`
+```
 
 ## Endpoints Públicos
 
@@ -13,38 +13,38 @@ Authorization: Bearer <jwt_token>
 Registrar nuevo usuario
 
 **Request Body:**
-\`\`\`json
+```json
 {
   "nombre": "Juan Pérez",
   "email": "juan@example.com",
   "password": "password123",
   "tipo": "usuario"
 }
-\`\`\`
+```
 
 **Response (201):**
-\`\`\`json
+```json
 {
   "id": 1,
   "nombre": "Juan Pérez",
   "email": "juan@example.com",
   "tipo": "usuario"
 }
-\`\`\`
+```
 
 ### POST /api/auth/login
 Iniciar sesión
 
 **Request Body:**
-\`\`\`json
+```json
 {
   "email": "juan@example.com",
   "password": "password123"
 }
-\`\`\`
+```
 
 **Response (200):**
-\`\`\`json
+```json
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
   "usuario": {
@@ -54,7 +54,7 @@ Iniciar sesión
     "tipo": "usuario"
   }
 }
-\`\`\`
+```
 
 ## Endpoints de Espacios
 
@@ -62,7 +62,7 @@ Iniciar sesión
 Listar todos los espacios disponibles
 
 **Response (200):**
-\`\`\`json
+```json
 [
   {
     "id": 1,
@@ -72,7 +72,7 @@ Listar todos los espacios disponibles
     "disponible": true
   }
 ]
-\`\`\`
+```
 
 ### GET /api/espacios/disponibilidad
 Verificar disponibilidad de un espacio
@@ -84,7 +84,7 @@ Verificar disponibilidad de un espacio
 - `hora_fin`: Hora en formato HH:MM
 
 **Response (200):**
-\`\`\`json
+```json
 {
   "disponible": true,
   "espacio": {
@@ -97,7 +97,7 @@ Verificar disponibilidad de un espacio
   "hora_inicio": "10:00",
   "hora_fin": "12:00"
 }
-\`\`\`
+```
 
 ### GET /api/espacios/:id/calendario
 Obtener calendario de un espacio
@@ -107,7 +107,7 @@ Obtener calendario de un espacio
 - `fecha_fin`: Fecha fin en formato YYYY-MM-DD
 
 **Response (200):**
-\`\`\`json
+```json
 {
   "espacio": {
     "id": 1,
@@ -135,7 +135,7 @@ Obtener calendario de un espacio
   "dias_disponibles": ["2024-01-16", "2024-01-17"],
   "dias_ocupados": ["2024-01-15"]
 }
-\`\`\`
+```
 
 ## Endpoints de Reservas
 
@@ -143,17 +143,17 @@ Obtener calendario de un espacio
 Crear nueva reserva (requiere autenticación)
 
 **Request Body:**
-\`\`\`json
+```json
 {
   "espacio_id": 1,
   "fecha": "2024-01-15",
   "hora_inicio": "10:00",
   "hora_fin": "12:00"
 }
-\`\`\`
+```
 
 **Response (201):**
-\`\`\`json
+```json
 {
   "id": 1,
   "usuario": {
@@ -171,13 +171,13 @@ Crear nueva reserva (requiere autenticación)
   "hora_fin": "12:00",
   "estado": "pendiente"
 }
-\`\`\`
+```
 
 ### GET /api/reservas/mis-reservas
 Obtener reservas del usuario autenticado
 
 **Response (200):**
-\`\`\`json
+```json
 [
   {
     "id": 1,
@@ -197,7 +197,7 @@ Obtener reservas del usuario autenticado
     "estado": "confirmada"
   }
 ]
-\`\`\`
+```
 
 ## Códigos de Error
 
