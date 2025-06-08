@@ -10,7 +10,7 @@ Sistema backend desarrollado con **Arquitectura Onion** para la gestión de rese
 
 La aplicación implementa **Arquitectura Onion** (Cebolla) con las siguientes capas concéntricas:
 
-\`\`\`
+'''
 ┌─────────────────────────────────────────┐
 │           PRESENTATION LAYER            │
 │    (Controllers, Routes, Middleware)    │
@@ -24,7 +24,7 @@ La aplicación implementa **Arquitectura Onion** (Cebolla) con las siguientes ca
 │             CORE LAYER                  │
 │   (Entities, Interfaces, Exceptions)   │
 └─────────────────────────────────────────┘
-\`\`\`
+'''
 
 ### Justificación de la Arquitectura
 
