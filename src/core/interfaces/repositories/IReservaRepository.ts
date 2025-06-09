@@ -9,4 +9,11 @@ export interface IReservaRepository {
   create(reserva: Reserva): Promise<Reserva>
   update(id: number, reserva: Partial<Reserva>): Promise<Reserva | null>
   delete(id: number): Promise<boolean>
+  findConflictingReservations(
+    espacioId: number,
+    fecha: Date,
+    horaInicio: string,
+    horaFin: string,
+    excludeReservaId?: number
+  ): Promise<Reserva[]>;
 }

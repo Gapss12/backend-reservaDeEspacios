@@ -1,6 +1,7 @@
 import type { IReservaRepository } from "../../../core/interfaces/repositories/IReservaRepository"
 import type { Reserva } from "../../../core/entities/Reserva"
 import {ReservaModel} from "../../persistence/models/index"
+import { Op } from "sequelize"
 
 export class ReservaRepository implements IReservaRepository {
   async findAll(): Promise<Reserva[]> {
@@ -12,6 +13,7 @@ export class ReservaRepository implements IReservaRepository {
     const reserva = await ReservaModel.findByPk(id)
     return reserva ? this.mapToEntity(reserva) : null
   }
+  
 
   async findByUsuarioId(usuarioId: number): Promise<Reserva[]> {
     const reservas = await ReservaModel.findAll({ where: { usuario_id: usuarioId } })
@@ -67,5 +69,39 @@ export class ReservaRepository implements IReservaRepository {
       createdAt: model.createdAt,
       updatedAt: model.updatedAt,
     }
+  }
+    async findConflictingReservations(
+    espacioId: number,
+    fecha: Date,
+    horaInicio: string,
+    horaFin: string,
+    excludeReservaId?: number
+  ): Promise<Reserva[]> {
+    const whereClause: any = {
+      espacio_id: espacioId,
+      fecha: fecha,
+      estado: { [Op.ne]: 'cancelada' },
+      [Op.or]: [
+        {
+          hora_inicio: { [Op.between]: [horaInicio, horaFin] }
+        },
+        {
+          hora_fin: { [Op.between]: [horaInicio, horaFin] }
+        },
+        {
+          [Op.and]: [
+            { hora_inicio: { [Op.lte]: horaInicio } },
+            { hora_fin: { [Op.gte]: horaFin } }
+          ]
+        }
+      ]
+    };
+
+    if (excludeReservaId) {
+      whereClause.id = { [Op.ne]: excludeReservaId };
+    }
+
+    const reservas = await ReservaModel.findAll({ where: whereClause });
+    return reservas.map(this.mapToEntity);
   }
 }

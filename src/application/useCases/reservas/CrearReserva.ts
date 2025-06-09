@@ -6,6 +6,7 @@ import type { IValidationService } from "../../../core/interfaces/services/IVali
 import { BusinessRuleException,ValidationException  } from "../../../core/exceptions/index"
 import type { ReservaResponse, CrearReservaRequest } from "../../dto/index"
 import { ReservaMapper } from "../../mappers/ReservaMapper"
+import { ValidarDisponibilidadReserva } from "./ValidarDisponibilidad"
 
 export class CrearReserva {
   constructor(
@@ -14,6 +15,7 @@ export class CrearReserva {
     private usuarioRepository: IUsuarioRepository,
     private emailService: IEmailService,
     private validationService: IValidationService,
+    private validarDisponibilidadReserva: ValidarDisponibilidadReserva
   ) {}
 
   async execute(request: CrearReservaRequest): Promise<ReservaResponse> {
@@ -38,16 +40,16 @@ export class CrearReserva {
       throw new BusinessRuleException("El espacio no existe")
     }
 
-    // Verificar disponibilidad del espacio
-    const disponible = await this.espacioRepository.verificarDisponibilidad(
+    // Validar disponibilidad
+    const disponible = await this.validarDisponibilidadReserva.execute(
       request.espacio_id,
       new Date(request.fecha),
       request.hora_inicio,
-      request.hora_fin,
-    )
+      request.hora_fin
+    );
 
     if (!disponible) {
-      throw new BusinessRuleException("El espacio no está disponible en el horario solicitado")
+      throw new Error('El espacio ya está reservado para el horario solicitado');
     }
 
     // Crear la reserva
