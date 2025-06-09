@@ -16,6 +16,7 @@ export class ReservaMapper {
   }
 
   static toResponse(reserva: Reserva, usuario?: Usuario, espacio?: Espacio): ReservaResponse {
+    const fecha = reserva.fecha instanceof Date ? reserva.fecha : new Date(reserva.fecha)
     return {
       id: reserva.id!,
       usuario: usuario
@@ -40,7 +41,7 @@ export class ReservaMapper {
             nombre: "Espacio no encontrado",
             tipo: "desconocido",
           },
-      fecha: reserva.fecha.toISOString().split("T")[0],
+      fecha: fecha.toISOString().split("T")[0],
       hora_inicio: reserva.hora_inicio,
       hora_fin: reserva.hora_fin,
       estado: reserva.estado,

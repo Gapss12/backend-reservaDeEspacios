@@ -40,7 +40,7 @@ const espacioController = new EspacioController(
 router.get("/", (req, res) => espacioController.listar(req, res))
 router.get("/:tipo", (req, res) => espacioController.listarPorTipo(req, res))
 router.post("/", authenticateToken, requireAdmin, (req, res) => espacioController.crear(req, res))
-router.get("/disponibilidad", authenticateToken, (req, res) => espacioController.verificarDisponibilidad(req, res))
+router.get("/disponibilidad/", authenticateToken, (req, res) => espacioController.verificarDisponibilidad(req, res))
 router.get("/:id/calendario", authenticateToken, (req, res) => espacioController.obtenerCalendario(req, res))
 
 export default router

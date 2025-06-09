@@ -145,8 +145,9 @@ Crear nueva reserva (requiere autenticación)
 **Request Body:**
 ```json
 {
+  "usuario_id": 1,
   "espacio_id": 1,
-  "fecha": "2024-01-15",
+  "fecha": "2025-06-15", //la fecha debe ser un dia posterior a la actual.
   "hora_inicio": "10:00",
   "hora_fin": "12:00"
 }
