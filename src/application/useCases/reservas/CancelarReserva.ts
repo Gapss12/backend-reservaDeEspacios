@@ -35,7 +35,7 @@ export class CancelarReserva {
       await this.emailService.enviarEmail(
         usuario.email,
         "Reserva Cancelada",
-        `Su reserva para el día ${reserva.fecha.toLocaleDateString()} ha sido cancelada.`,
+        `Su reserva para el día ${reserva.fecha} ha sido cancelada.`,
       )
     }
 

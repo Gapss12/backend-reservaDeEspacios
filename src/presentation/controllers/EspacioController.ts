@@ -61,15 +61,17 @@ export class EspacioController {
 
   async verificarDisponibilidad(req: Request, res: Response): Promise<void> {
     try {
-      const { espacio_id, fecha, hora_inicio, hora_fin } = req.query
+      const { fecha, hora_inicio, hora_fin } = req.query
+      const  espacio_id  = req.params.espacio_id
 
-      if (!espacio_id || !fecha || !hora_inicio || !hora_fin) {
+      if (!fecha || !hora_inicio || !hora_fin) {
         res.status(400).json({ error: "Faltan parámetros requeridos" })
         return
       }
-
+      console.log("Verificando disponibilidad para:", 
+        espacio_id, fecha, hora_inicio, hora_fin)
       const resultado = await this.verificarDisponibilidadUseCase.execute({
-        espacio_id: Number.parseInt(espacio_id as string),
+        espacio_id: Number.parseInt(espacio_id),
         fecha: fecha as string,
         hora_inicio: hora_inicio as string,
         hora_fin: hora_fin as string,

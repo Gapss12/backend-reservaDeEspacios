@@ -35,6 +35,7 @@ export class VerificarDisponibilidadEspacio {
   ) {}
 
   async execute(request: DisponibilidadRequest): Promise<DisponibilidadResponse> {
+    console.log("Verificando disponibilidad para:", request);
     // Verificar que el espacio existe
     const espacio = await this.espacioRepository.findById(request.espacio_id)
     if (!espacio) {
@@ -48,6 +49,7 @@ export class VerificarDisponibilidadEspacio {
       request.hora_inicio,
       request.hora_fin,
     )
+    console.log("Disponibilidad:", disponible);
 
     // Obtener reservas existentes para mostrar conflictos si los hay
     const reservasDelDia = await this.reservaRepository.findByFecha(new Date(request.fecha))
@@ -59,7 +61,7 @@ export class VerificarDisponibilidadEspacio {
       id: reserva.id!,
       hora_inicio: reserva.hora_inicio,
       hora_fin: reserva.hora_fin,
-      usuario: `Usuario ${reserva.usuario_id}`, // En un caso real, se haría join con usuario
+      usuario: `Usuario ${reserva.usuario_id}`,
     }))
 
     return {
