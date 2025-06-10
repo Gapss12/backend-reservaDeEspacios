@@ -8,6 +8,7 @@ export class EspacioMapper {
       nombre: espacio.nombre,
       tipo: espacio.tipo,
       capacidad: espacio.capacidad,
+      image_url: espacio.image_url,
       disponible: espacio.disponible,
     }
   }

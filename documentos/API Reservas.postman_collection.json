@@ -1,0 +1,692 @@
+{
+	"info": {
+		"_postman_id": "8afeb3c3-3f1a-4e05-8692-ad86a4e30f20",
+		"name": "API Reservas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34774840"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"carlos cruz\",\r\n    \"email\" : \"carlos.cruz@ucb.edu.bo\",\r\n    \"tipo\": \"admin\",\r\n    \"password\": \"Admin.2025\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"carlos.cruz@ucb.edu.bo\",\r\n    \"password\": \"Admin.2025\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserRoutes",
+			"item": [
+				{
+					"name": "listar usuarios (admin)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"gabriel.guzman@ucb.edu.bo\",\r\n    \"password\": \"Admin.2025\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "perfil usuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"gabriel.guzman@ucb.edu.bo\",\r\n    \"password\": \"Admin.2025\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/usuarios/perfil",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"usuarios",
+								"perfil"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "espacios DIsponibles Routes",
+			"item": [
+				{
+					"name": "Listar espacios disponibles para reservar.",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"gabriel.guzman@ucb.edu.bo\",\r\n    \"password\": \"Admin.2025\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/espacios/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"espacios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar espacios por tipo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"gabriel.guzman@ucb.edu.bo\",\r\n    \"password\": \"Admin.2025\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/espacios/:tipo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"espacios",
+								":tipo"
+							],
+							"variable": [
+								{
+									"key": "tipo",
+									"value": "salon"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar disponibiliadad espacio",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"gabriel.guzman@ucb.edu.bo\",\r\n    \"password\": \"Admin.2025\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/espacios/disponibilidad/:espacio_id?fecha=2025-06-9&hora_inicio=7:00&hora_fin=23:00",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"espacios",
+								"disponibilidad",
+								":espacio_id"
+							],
+							"query": [
+								{
+									"key": "fecha",
+									"value": "2025-06-9"
+								},
+								{
+									"key": "hora_inicio",
+									"value": "7:00"
+								},
+								{
+									"key": "hora_fin",
+									"value": "23:00"
+								}
+							],
+							"variable": [
+								{
+									"key": "espacio_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "si hay conflictos responde asi.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"gabriel.guzman@ucb.edu.bo\",\r\n    \"password\": \"Admin.2025\"\r\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/espacios/disponibilidad/:espacio_id?fecha=2025-06-9&hora_inicio=7:00&hora_fin=23:00",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"espacios",
+										"disponibilidad",
+										":espacio_id"
+									],
+									"query": [
+										{
+											"key": "fecha",
+											"value": "2025-06-9"
+										},
+										{
+											"key": "hora_inicio",
+											"value": "7:00"
+										},
+										{
+											"key": "hora_fin",
+											"value": "23:00"
+										}
+									],
+									"variable": [
+										{
+											"key": "espacio_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "244"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f4-FY4w4C6w+rVFEzm5kE36fsj0e0s\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Jun 2025 16:27:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"disponible\": true,\n    \"espacio\": {\n        \"id\": 1,\n        \"nombre\": \"Salón Principal\",\n        \"tipo\": \"salon\",\n        \"capacidad\": 100\n    },\n    \"fecha\": \"2025-06-9\",\n    \"hora_inicio\": \"7:00\",\n    \"hora_fin\": \"23:00\",\n    \"conflictos\": [\n        {\n            \"id\": 6,\n            \"hora_inicio\": \"13:00\",\n            \"hora_fin\": \"14:00\",\n            \"usuario\": \"Usuario 2\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Ver disponibilidad de espacio en base a fechas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/espacios/:id/calendario?fecha_inicio=2025-06-01&fecha_fin=2025-06-10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"espacios",
+								":id",
+								"calendario"
+							],
+							"query": [
+								{
+									"key": "fecha_inicio",
+									"value": "2025-06-01"
+								},
+								{
+									"key": "fecha_fin",
+									"value": "2025-06-10"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nuevo Esspacio comunitario.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"patio de juegos\", \r\n  \"tipo\": \"salon\",\r\n  \"capacidad\": 10,\r\n  \"disponible\": true\r\n}",
+				            "options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/espacios/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"espacios",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservas Routes",
+			"item": [
+				{
+					"name": "hacer una reserva",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"usuario_id\": 2, \r\n  \"espacio_id\": 1,\r\n  \"fecha\": \"2025-06-10\",\r\n  \"hora_inicio\": \"13:00\",\r\n  \"hora_fin\": \"14:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/reservas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"reservas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "reservacion exitosa",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"usuario_id\":1, \r\n  \"espacio_id\": 1,\r\n  \"fecha\": \"2025-06-15\",\r\n  \"hora_inicio\": \"10:00\",\r\n  \"hora_fin\": \"12:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/reservas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"reservas"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "234"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ea-Z9zZF3+rKi1FxIUCt2iOoXgFsjo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Jun 2025 00:32:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"usuario\": {\n        \"id\": 1,\n        \"nombre\": \"gabriel guzman\",\n        \"email\": \"gabriel.guzman@ucb.edu.bo\"\n    },\n    \"espacio\": {\n        \"id\": 1,\n        \"nombre\": \"Salón Principal\",\n        \"tipo\": \"salon\"\n    },\n    \"fecha\": \"2025-06-14\",\n    \"hora_inicio\": \"10:00\",\n    \"hora_fin\": \"12:00\",\n    \"estado\": \"pendiente\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Mis reservas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"usuario_id\":1, \r\n  \"espacio_id\": 1,\r\n  \"fecha\": \"2025-06-15\",\r\n  \"hora_inicio\": \"10:00\",\r\n  \"hora_fin\": \"12:00\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/reservas/mis-reservas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"reservas",
+								"mis-reservas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Respuesta correcta",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"usuario_id\":1, \r\n  \"espacio_id\": 1,\r\n  \"fecha\": \"2025-06-15\",\r\n  \"hora_inicio\": \"10:00\",\r\n  \"hora_fin\": \"12:00\"\r\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/reservas/mis-reservas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"reservas",
+										"mis-reservas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "688"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b0-spqLwu5LRccdu6T/7t9wsaUXAfo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Jun 2025 14:31:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 4,\n        \"usuario\": {\n            \"id\": 2,\n            \"nombre\": \"carlos cruz\",\n            \"email\": \"carlos.cruz@ucb.edu.bo\"\n        },\n        \"espacio\": {\n            \"id\": 1,\n            \"nombre\": \"Salón Principal\",\n            \"tipo\": \"salon\"\n        },\n        \"fecha\": \"2025-06-14\",\n        \"hora_inicio\": \"10:00\",\n        \"hora_fin\": \"12:00\",\n        \"estado\": \"pendiente\"\n    },\n    {\n        \"id\": 5,\n        \"usuario\": {\n            \"id\": 2,\n            \"nombre\": \"carlos cruz\",\n            \"email\": \"carlos.cruz@ucb.edu.bo\"\n        },\n        \"espacio\": {\n            \"id\": 1,\n            \"nombre\": \"Salón Principal\",\n            \"tipo\": \"salon\"\n        },\n        \"fecha\": \"2025-06-09\",\n        \"hora_inicio\": \"10:00\",\n        \"hora_fin\": \"12:00\",\n        \"estado\": \"pendiente\"\n    },\n    {\n        \"id\": 6,\n        \"usuario\": {\n            \"id\": 2,\n            \"nombre\": \"carlos cruz\",\n            \"email\": \"carlos.cruz@ucb.edu.bo\"\n        },\n        \"espacio\": {\n            \"id\": 1,\n            \"nombre\": \"Salón Principal\",\n            \"tipo\": \"salon\"\n        },\n        \"fecha\": \"2025-06-09\",\n        \"hora_inicio\": \"13:00\",\n        \"hora_fin\": \"14:00\",\n        \"estado\": \"pendiente\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "ver reservas por dia",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"usuario_id\":1, \r\n  \"espacio_id\": 1,\r\n  \"fecha\": \"2025-06-15\",\r\n  \"hora_inicio\": \"10:00\",\r\n  \"hora_fin\": \"12:00\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/reservas/fecha/:fecha",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"reservas",
+								"fecha",
+								":fecha"
+							],
+							"variable": [
+								{
+									"key": "fecha",
+									"value": "2025-06-09"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"usuario_id\":1, \r\n  \"espacio_id\": 1,\r\n  \"fecha\": \"2025-06-15\",\r\n  \"hora_inicio\": \"10:00\",\r\n  \"hora_fin\": \"12:00\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/reservas/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"reservas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImVtYWlsIjoiY2FybG9zLmNydXpAdWNiLmVkdS5ibyIsInRpcG8iOiJhZG1pbiIsImlhdCI6MTc0OTQ3NTU1MCwiZXhwIjoxNzQ5NTYxOTUwfQ.aFR37xZjYdSAnMz25YjY3AcyGrMxpWHByA-GmuYDrH4",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "default"
+		}
+	]
+}

@@ -27,6 +27,7 @@ export interface CalendarioResponse {
     nombre: string
     tipo: string
     capacidad: number
+    image_url?: string 
   }
   periodo: {
     fecha_inicio: string
@@ -99,6 +100,7 @@ export class ObtenerCalendarioEspacio {
         nombre: espacio.nombre,
         tipo: espacio.tipo,
         capacidad: espacio.capacidad,
+        image_url: espacio.image_url,
       },
       periodo: {
         fecha_inicio: request.fecha_inicio,

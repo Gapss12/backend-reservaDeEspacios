@@ -37,12 +37,13 @@ export class EspacioController {
   }
   async crear(req: Request, res: Response): Promise<void> {
     try {
-      const { nombre, tipo, capacidad, disponible } = req.body
+      const { nombre, tipo, capacidad,image_url, disponible } = req.body
 
       const resultado = await this.crearEspacioUseCase.execute({
         nombre,
         tipo,
         capacidad,
+        image_url,
         disponible,
       })
 

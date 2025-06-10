@@ -3,6 +3,7 @@ export interface Espacio {
   nombre: string
   tipo: string
   capacidad: number
+  image_url?: string
   disponible: boolean
   createdAt?: Date
   updatedAt?: Date

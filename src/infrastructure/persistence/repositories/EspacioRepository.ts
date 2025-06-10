@@ -85,6 +85,7 @@ export class EspacioRepository implements IEspacioRepository {
       nombre: model.nombre,
       tipo: model.tipo,
       capacidad: model.capacidad,
+      image_url: model.image_url,
       disponible: model.disponible,
       createdAt: model.createdAt,
       updatedAt: model.updatedAt,

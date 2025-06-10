@@ -3,5 +3,6 @@ export interface EspacioResponse {
   nombre: string
   tipo: string
   capacidad: number
+  image_url?: string
   disponible: boolean
 }

@@ -8,6 +8,7 @@ export interface CrearEspacioRequest {
   nombre: string
   tipo: string
   capacidad: number
+  image_url?: string
   disponible?: boolean
 }
 
@@ -36,6 +37,7 @@ export class CrearEspacio {
       nombre: request.nombre.trim(),
       tipo: request.tipo.trim().toLowerCase(),
       capacidad: request.capacidad,
+      image_url: request.image_url,
       disponible: request.disponible !== false,
     }
 

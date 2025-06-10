@@ -43,18 +43,21 @@ const seedData = async () => {
           nombre: "Salón Principal",
           tipo: "salon",
           capacidad: 100,
+          image_url:"https://www.revistacasaviva.es/wp-content/uploads/2024/02/1-Salon-parquet-Mini-Imperial-Nude-papel-pintado-Skins-Nature-Ayame-Lavender-Antic-Colonial-Porcelanosa.jpg",
           disponible: true,
         },
         {
           nombre: "Auditorio",
           tipo: "auditorio",
           capacidad: 200,
+          image_url:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Sala_de_cine.jpg/1200px-Sala_de_cine.jpg",
           disponible: true,
         },
         {
           nombre: "Sala de Reuniones A",
           tipo: "sala",
           capacidad: 20,
+          image_url:"https://upload.wikimedia.org/wikipedia/commons/8/85/Conference_table.jpg",
           disponible: true,
         },
       ], { transaction });
@@ -71,15 +74,14 @@ const seedData = async () => {
     console.log("Contraseña:".padEnd(15), "user123");
     console.log("====================================");
     
-    process.exit(0); // Salir del proceso con éxito
+    process.exit(0); 
   } catch (error) {
     console.error("\nError en el seed de datos:");
     console.error("------------------------------------");
     console.error(error);
     console.error("------------------------------------");
-    process.exit(1); // Salir del proceso con error
+    process.exit(1); 
   }
 }
 
-// Ejecutar el seed
 seedData();

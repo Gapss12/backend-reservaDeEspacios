@@ -69,6 +69,7 @@ Listar todos los espacios disponibles
     "nombre": "Salón Principal",
     "tipo": "salon",
     "capacidad": 100,
+    "image_url":"https://www.revistacasaviva.es/wp-content/uploads/2024/02/1-Salon-parquet-Mini-Imperial-Nude-papel-pintado-Skins-Nature-Ayame-Lavender-Antic-Colonial-Porcelanosa.jpg",
     "disponible": true
   }
 ]

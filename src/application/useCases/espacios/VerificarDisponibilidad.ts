@@ -16,6 +16,7 @@ export interface DisponibilidadResponse {
     nombre: string
     tipo: string
     capacidad: number
+    // image_url?: string // Si se desea incluir la URL de la imagen
   }
   fecha: string
   hora_inicio: string
