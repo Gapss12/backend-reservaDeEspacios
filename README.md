@@ -147,7 +147,7 @@ src/
 │   ├── dto/               # Data Transfer Objects
 │   └── mappers/           # Mappers entre capas
 ├── infrastructure/        # Capa de infraestructura
-│   ├── database/          # Modelos y repositorios
+│   ├── persistence/          # Modelos y repositorios
 │   └── services/          # Servicios externos
 └── presentation/          # Capa de presentación
     ├── controllers/       # Controladores HTTP
@@ -159,7 +159,3 @@ src/
 
 1. **Integración con Google Calendar**
 2. **Sistema de notificaciones push**
-3. **Cache con Redis**
-4. **Métricas y monitoreo**
-5. **API rate limiting**
-6. **Documentación con Swagger**
