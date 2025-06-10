@@ -2,46 +2,8 @@
 
 ## Descripción del Proyecto
 
-Sistema backend desarrollado con **Arquitectura Onion** para la gestión de reservas de espacios comunitarios (salones, auditorios, canchas deportivas). Permite a usuarios registrados reservar espacios por día y hora específica, con sistema de notificaciones y panel administrativo.
+Sistema backend desarrollado con **Arquitectura Onion** para la gestión de reservas de espacios comunitarios (salones, auditorios, canchas deportivas). Permite a usuarios registrados reservar espacios por día y hora específica, con sistema de notificaciones (MOCK) y panel administrativo.
 
-## Arquitectura
-
-### Estilo Arquitectónico: Onion Architecture
-
-La aplicación implementa **Arquitectura Onion** (Cebolla) con las siguientes capas concéntricas:
-
-```
-┌─────────────────────────────────────────┐
-│           PRESENTATION LAYER            │
-│    (Controllers, Routes, Middleware)    │
-├─────────────────────────────────────────┤
-│         INFRASTRUCTURE LAYER            │
-│  (Repositories, Services, Database)     │
-├─────────────────────────────────────────┤
-│          APPLICATION LAYER              │
-│    (Use Cases, DTOs, Mappers)          │
-├─────────────────────────────────────────┤
-│             CORE LAYER                  │
-│   (Entities, Interfaces, Exceptions)   │
-└─────────────────────────────────────────┘
-```
-
-### Justificación de la Arquitectura
-
-1. **Separación de Responsabilidades**: Cada capa tiene una responsabilidad específica y bien definida
-2. **Inversión de Dependencias**: Las capas externas dependen de las internas, nunca al revés
-3. **Testabilidad**: El core es independiente de frameworks y tecnologías externas
-4. **Mantenibilidad**: Cambios en infraestructura no afectan la lógica de negocio
-5. **Escalabilidad**: Fácil agregar nuevas funcionalidades sin afectar el código existente
-
-## Tecnologías Utilizadas
-
-- **Runtime**: Node.js con TypeScript
-- **Framework Web**: Express.js
-- **ORM**: Sequelize
-- **Base de Datos**: PostgreSQL
-- **Autenticación**: JWT + bcrypt
-- **Validación**: Custom validation services
 
 ## Módulos del Sistema
 
