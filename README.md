@@ -7,6 +7,22 @@ Sistema backend desarrollado con **Arquitectura Onion** para la gestión de rese
 
 ## Módulos del Sistema
 
+```
+┌─────────────────────────────────────────┐
+│           PRESENTATION LAYER            │
+│    (Controllers, Routes, Middleware)    │
+├─────────────────────────────────────────┤
+│         INFRASTRUCTURE LAYER            │
+│  (Repositories, Services, Database)     │
+├─────────────────────────────────────────┤
+│          APPLICATION LAYER              │
+│    (Use Cases, DTOs, Mappers)           │
+├─────────────────────────────────────────┤
+│             CORE LAYER                  │
+│   (Entities, Interfaces, Exceptions)    │
+└─────────────────────────────────────────┘
+```
+
 ### 1. Módulo de Usuarios
 - **Responsabilidad**: Gestión de usuarios y autenticación
 - **Casos de Uso**: Registro, login, gestión de perfiles
