@@ -26,15 +26,20 @@ export class ReservaRepository implements IReservaRepository {
   }
 
   async findByFecha(fecha: Date): Promise<Reserva[]> {
-    const fechaStr = fecha.toISOString().split("T")[0]
+    // Get first and last day of the month
+    const startOfMonth = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
+    const endOfMonth = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0);
 
     const reservas = await ReservaModel.findAll({
       where: {
-        fecha: fechaStr,
+        fecha: {
+          [Op.between]: [startOfMonth, endOfMonth]
+        }
       },
-    })
+      order: [['fecha', 'ASC'], ['hora_inicio', 'ASC']]
+    });
 
-    return reservas.map((reserva) => this.mapToEntity(reserva))
+    return reservas.map((reserva) => this.mapToEntity(reserva));
   }
 
    async create(reserva: Partial<Reserva>): Promise<Reserva> {
