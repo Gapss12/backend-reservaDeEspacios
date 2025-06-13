@@ -1,6 +1,6 @@
-import type { IReservaRepository } from "../../../core/interfaces/repositories/IReservaRepository"
-import type { Reserva } from "../../../core/entities/Reserva"
-import {ReservaModel} from "../../persistence/models/index"
+import type { IReservaRepository } from "../../core/interfaces/repositories/IReservaRepository"
+import type { Reserva } from "../../core/entities/Reserva"
+import {ReservaModel} from "../persistence/models/index"
 import { Op } from "sequelize"
 
 export class ReservaRepository implements IReservaRepository {

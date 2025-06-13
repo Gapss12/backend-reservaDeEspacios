@@ -2,7 +2,7 @@ import { Router } from "express"
 import { AuthController } from "../controllers/AuthController"
 import { LoginUsuario } from "../../application/useCases/auth/LoginUsuario"
 import { RegistrarUsuario } from "../../application/useCases/usuarios/RegistrarUsuario"
-import { UsuarioRepository } from "../../infrastructure/persistence/repositories/UsuarioRepository"
+import { UsuarioRepository } from "../../infrastructure/repositories/UsuarioRepository"
 import { AuthService } from "../../infrastructure/services/AuthService"
 import { ValidationService } from "../../infrastructure/services/ValidationService"
 
