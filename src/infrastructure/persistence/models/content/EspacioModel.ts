@@ -34,8 +34,7 @@ EspacioModel.init(
     image_url: {
       type: DataTypes.STRING(255),
       allowNull: true,
-      defaultValue: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/LYS32light_sitting_room.JPG/1200px-LYS32light_sitting_room.JPG",
-    },
+      },
     disponible: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
