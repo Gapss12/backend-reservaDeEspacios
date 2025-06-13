@@ -37,9 +37,16 @@ export class ReservaRepository implements IReservaRepository {
     return reservas.map((reserva) => this.mapToEntity(reserva))
   }
 
-  async create(reserva: Partial<Reserva>): Promise<Reserva> {
-    const nuevaReserva = await ReservaModel.create(reserva)
-    return this.mapToEntity(nuevaReserva)
+   async create(reserva: Partial<Reserva>): Promise<Reserva> {
+      // Añadir un día a la fecha
+      if (reserva.fecha) {
+          const fecha = new Date(reserva.fecha);
+          fecha.setDate(fecha.getDate() + 1);
+          reserva.fecha = fecha;
+      }
+      
+      const nuevaReserva = await ReservaModel.create(reserva);
+      return this.mapToEntity(nuevaReserva);
   }
 
   async update(id: number, reserva: Partial<Reserva>): Promise<Reserva | null> {
