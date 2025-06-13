@@ -1,7 +1,7 @@
 import { Router } from "express"
 import { UsuarioController } from "../controllers/UsuarioController"
 import { ObtenerUsuarios } from "../../application/useCases/usuarios/ObtenerUsuarios"
-import { UsuarioRepository } from "../../infrastructure/repositories/UsuarioRepository"
+import { UsuarioRepository } from "../../infrastructure/persistence/repositories/UsuarioRepository"
 import { authenticateToken, requireAdmin } from "../middleware/authMiddleware"
 
 const router = Router()
